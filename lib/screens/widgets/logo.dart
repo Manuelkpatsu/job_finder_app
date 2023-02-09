@@ -5,7 +5,6 @@ class Logo extends StatelessWidget {
   final String logo;
   final Color backgroundColor;
   final double size;
-  final double borderRadius;
   final EdgeInsetsGeometry padding;
 
   const Logo({
@@ -13,7 +12,6 @@ class Logo extends StatelessWidget {
     required this.logo,
     this.backgroundColor = CustomColor.primaryColor,
     this.size = 60,
-    this.borderRadius = 5,
     this.padding = const EdgeInsets.symmetric(horizontal: 13, vertical: 19),
   }) : super(key: key);
 
@@ -26,7 +24,7 @@ class Logo extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: backgroundColor,
-        borderRadius: BorderRadius.circular(borderRadius),
+        borderRadius: BorderRadius.circular(15),
       ),
       child: Image.asset(logo, fit: BoxFit.cover),
     );

@@ -66,7 +66,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                 backgroundColor: Colors.white,
                 size: 90,
                 logo: 'assets/images/logo-1.png',
-                borderRadius: 10,
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 28),
               ),
               SizedBox(height: 10),
