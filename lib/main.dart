@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'router.dart';
+import 'screens/splash/splash_screen.dart';
 import 'theme/custom_theme.dart';
 
 void main() {
@@ -15,24 +17,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: CustomTheme.theme,
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Flutter Demo Home Page')),
-      body: const Center(
-        child: Text(
-          'Welcome home',
-          style: TextStyle(color: Colors.black, fontSize: 16),
-        ),
-      ),
+      initialRoute: SplashScreen.routeName,
+      onGenerateRoute: AppRouter.generateRoute,
     );
   }
 }
