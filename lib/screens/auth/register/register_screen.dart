@@ -1,32 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:job_finder_app/screens/auth/register/register_screen.dart';
+import 'package:job_finder_app/screens/auth/login/login_screen.dart';
 import 'package:job_finder_app/screens/widgets/custom_button.dart';
 import 'package:job_finder_app/screens/widgets/logo.dart';
 import 'package:job_finder_app/screens/widgets/password_input_field.dart';
 import 'package:job_finder_app/screens/widgets/text_input_field.dart';
 import 'package:job_finder_app/utils/validator.dart';
 
-import 'widgets/create_new_account.dart';
-import 'widgets/forgot_password_button.dart';
-import 'widgets/login_message_text.dart';
-import 'widgets/welcome_back_text.dart';
+import 'widgets/agree_terms_conditions.dart';
+import 'widgets/create_account_message_text.dart';
+import 'widgets/create_account_text.dart';
+import 'widgets/have_account.dart';
 
-class LoginScreen extends StatefulWidget {
-  static const routeName = '/login';
+class RegisterScreen extends StatefulWidget {
+  static const routeName = '/register';
 
-  const LoginScreen({Key? key}) : super(key: key);
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
+  final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final _loginFormKey = GlobalKey<FormState>();
+  final _registerFormKey = GlobalKey<FormState>();
+  bool _isChecked = false;
 
   @override
   void dispose() {
+    _fullNameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
@@ -39,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Form(
-            key: _loginFormKey,
+            key: _registerFormKey,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             child: Column(
               children: [
@@ -51,10 +54,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   borderRadius: 10,
                 ),
                 const SizedBox(height: 26),
-                const WelcomeBackText(),
+                const CreateAccountText(),
                 const SizedBox(height: 10),
-                const LoginMessageText(),
+                const CreateAccountMessageText(),
                 const SizedBox(height: 40),
+                TextInputField(
+                  controller: _fullNameController,
+                  labelText: 'Full Name',
+                  inputType: TextInputType.name,
+                  inputAction: TextInputAction.next,
+                  validator: Validator.fullName,
+                ),
+                const SizedBox(height: 10),
                 TextInputField(
                   controller: _emailController,
                   labelText: 'Email',
@@ -70,18 +81,27 @@ class _LoginScreenState extends State<LoginScreen> {
                   validator: Validator.password,
                 ),
                 const SizedBox(height: 16),
-                ForgotPasswordButton(onTap: () {}),
+                AgreeTermsConditions(
+                  isChecked: _isChecked,
+                  onChanged: (value) {
+                    setState(() {
+                      _isChecked = value!;
+                    });
+                  },
+                  onConditionsTap: () {},
+                  onTermsTap: () {},
+                ),
                 const SizedBox(height: 100),
                 CustomButton(
                   onPressed: () {
-                    if (_loginFormKey.currentState!.validate()) {}
+                    if (_registerFormKey.currentState!.validate()) {}
                   },
-                  widget: const Text('Sign In'),
+                  widget: const Text('Create Account'),
                 ),
                 const SizedBox(height: 32),
-                CreateNewAccount(
+                HaveAccount(
                   onTap: () => Navigator.of(context).pushNamed(
-                    RegisterScreen.routeName,
+                    LoginScreen.routeName,
                   ),
                 ),
                 const SizedBox(height: 30),

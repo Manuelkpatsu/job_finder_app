@@ -6,6 +6,7 @@ class CustomColor {
   static const Color lightBlueColor = Color(0xff7e8ce4);
   static const Color secondaryColor = Color(0xffffc833);
   static const Color infoColor = Color(0xff2277fe);
+  static const Color checkboxColor = Color(0xff007aff);
   static const Color lightInfoColor = Color(0xffe9f6ff);
   static const Color successColor = Color(0xff53d1b6);
   static const Color lightSuccessColor = Color(0xffe9ffeb);
