@@ -13,12 +13,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: CustomTheme.theme,
-      initialRoute: SplashScreen.routeName,
-      onGenerateRoute: AppRouter.generateRoute,
+    return GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+          FocusManager.instance.primaryFocus?.unfocus();
+        }
+      },
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: CustomTheme.theme,
+        initialRoute: SplashScreen.routeName,
+        onGenerateRoute: AppRouter.generateRoute,
+      ),
     );
   }
 }

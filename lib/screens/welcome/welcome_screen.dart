@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:job_finder_app/screens/auth/login/login_screen.dart';
 import 'package:job_finder_app/screens/widgets/custom_button.dart';
 import 'package:job_finder_app/screens/widgets/logo.dart';
 
@@ -30,7 +31,12 @@ class WelcomeScreen extends StatelessWidget {
               const WelcomeMessageText(),
               const Spacer(),
               CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                    LoginScreen.routeName,
+                    (route) => false,
+                  );
+                },
                 widget: const Text('Start Explore Jobs'),
               ),
               const SizedBox(height: 20),
