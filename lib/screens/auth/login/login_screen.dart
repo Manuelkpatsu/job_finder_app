@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:job_finder_app/screens/auth/register/register_screen.dart';
+import 'package:job_finder_app/screens/main/app.dart';
 import 'package:job_finder_app/screens/widgets/custom_button.dart';
 import 'package:job_finder_app/screens/widgets/logo.dart';
 import 'package:job_finder_app/screens/widgets/password_input_field.dart';
@@ -74,7 +75,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 100),
                 CustomButton(
                   onPressed: () {
-                    if (_loginFormKey.currentState!.validate()) {}
+                    if (_loginFormKey.currentState!.validate()) {
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                        App.routeName,
+                        (route) => false,
+                      );
+                    }
                   },
                   widget: const Text('Sign In'),
                 ),

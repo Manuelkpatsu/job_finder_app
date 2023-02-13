@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:job_finder_app/screens/auth/login/login_screen.dart';
+import 'package:job_finder_app/screens/main/app.dart';
 import 'package:job_finder_app/screens/widgets/custom_button.dart';
 import 'package:job_finder_app/screens/widgets/logo.dart';
 import 'package:job_finder_app/screens/widgets/password_input_field.dart';
@@ -94,7 +95,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 const SizedBox(height: 100),
                 CustomButton(
                   onPressed: () {
-                    if (_registerFormKey.currentState!.validate()) {}
+                    if (_registerFormKey.currentState!.validate()) {
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                        App.routeName,
+                        (route) => false,
+                      );
+                    }
                   },
                   widget: const Text('Create Account'),
                 ),
