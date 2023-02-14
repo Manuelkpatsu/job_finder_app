@@ -19,4 +19,5 @@ class CustomColor {
   static const Color deskripsiColor = Color(0xff9ca5bf);
   static const Color dividerColor = Color(0xffdde5fc);
   static const Color greyColor = Color(0xff8E8E93);
+  static const Color iconColor = Color(0xff9098b1);
 }
