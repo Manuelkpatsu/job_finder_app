@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:job_finder_app/models/profile_item.dart';
 import 'package:job_finder_app/theme/custom_color.dart';
 
+import 'change_email/change_email_screen.dart';
 import 'change_name/change_name_screen.dart';
 import 'widgets/account_email_text.dart';
 import 'widgets/account_name_text.dart';
@@ -35,7 +36,12 @@ class ProfileScreen extends StatelessWidget {
         icon: Icons.email_rounded,
         title: 'Email',
         info: email,
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).pushNamed(
+            ChangeEmailScreen.routeName,
+            arguments: email,
+          );
+        },
       ),
       ProfileItem(
         icon: Icons.lock_rounded,
