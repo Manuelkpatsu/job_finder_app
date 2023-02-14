@@ -6,6 +6,7 @@ import 'package:job_finder_app/theme/custom_color.dart';
 
 import 'change_email/change_email_screen.dart';
 import 'change_name/change_name_screen.dart';
+import 'change_password/change_password_screen.dart';
 import 'widgets/account_email_text.dart';
 import 'widgets/account_name_text.dart';
 import 'widgets/logout_button.dart';
@@ -47,7 +48,9 @@ class ProfileScreen extends StatelessWidget {
         icon: Icons.lock_rounded,
         title: 'Password',
         info: password.replaceRange(0, password.length, '*' * password.length),
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).pushNamed(ChangePasswordScreen.routeName);
+        },
       ),
     ];
 

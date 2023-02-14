@@ -8,6 +8,7 @@ import 'screens/main/bookmarks/bookmarks_screen.dart';
 import 'screens/main/home/home_screen.dart';
 import 'screens/main/profile/change_email/change_email_screen.dart';
 import 'screens/main/profile/change_name/change_name_screen.dart';
+import 'screens/main/profile/change_password/change_password_screen.dart';
 import 'screens/main/profile/profile_screen.dart';
 import 'screens/splash/splash_screen.dart';
 import 'screens/welcome/welcome_screen.dart';
@@ -39,6 +40,8 @@ class AppRouter {
       case ChangeEmailScreen.routeName:
         String argument = settings.arguments as String;
         return MaterialPageRoute(builder: (_) => ChangeEmailScreen(argument: argument));
+      case ChangePasswordScreen.routeName:
+        return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
