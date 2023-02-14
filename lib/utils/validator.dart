@@ -24,6 +24,22 @@ class Validator {
     return null;
   };
 
+  static FormFieldValidator<String> firstName = (firstName) {
+    if (firstName == null || firstName.isEmpty) {
+      return 'First name is required.';
+    }
+
+    return null;
+  };
+
+  static FormFieldValidator<String> lastName = (lastName) {
+    if (lastName == null || lastName.isEmpty) {
+      return 'Last name is required.';
+    }
+
+    return null;
+  };
+
   static FormFieldValidator<String> password = (password) {
     if (password == null || password.isEmpty) {
       return 'Password is required';

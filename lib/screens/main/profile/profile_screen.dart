@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:job_finder_app/models/profile_item.dart';
 import 'package:job_finder_app/theme/custom_color.dart';
 
+import 'change_name/change_name_screen.dart';
 import 'widgets/account_email_text.dart';
 import 'widgets/account_name_text.dart';
 import 'widgets/logout_button.dart';
@@ -58,7 +59,12 @@ class ProfileScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushNamed(
+                ChangeNameScreen.routeName,
+                arguments: fullName,
+              );
+            },
             child: Ink(
               padding: const EdgeInsets.only(left: 24, right: 24, top: 24, bottom: 24),
               child: Row(

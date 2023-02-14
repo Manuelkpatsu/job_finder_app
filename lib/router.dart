@@ -6,6 +6,7 @@ import 'screens/main/app.dart';
 import 'screens/main/application/application_screen.dart';
 import 'screens/main/bookmarks/bookmarks_screen.dart';
 import 'screens/main/home/home_screen.dart';
+import 'screens/main/profile/change_name/change_name_screen.dart';
 import 'screens/main/profile/profile_screen.dart';
 import 'screens/splash/splash_screen.dart';
 import 'screens/welcome/welcome_screen.dart';
@@ -31,6 +32,9 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ApplicationScreen());
       case ProfileScreen.routeName:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
+      case ChangeNameScreen.routeName:
+        String argument = settings.arguments as String;
+        return MaterialPageRoute(builder: (_) => ChangeNameScreen(argument: argument));
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

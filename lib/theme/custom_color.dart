@@ -20,4 +20,5 @@ class CustomColor {
   static const Color dividerColor = Color(0xffdde5fc);
   static const Color greyColor = Color(0xff8E8E93);
   static const Color iconColor = Color(0xff9098b1);
+  static const Color appBarDividerColor = Color(0xffebf0ff);
 }
