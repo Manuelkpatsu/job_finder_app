@@ -22,7 +22,7 @@ class BookmarkTile extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Ink(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 15),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
