@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:job_finder_app/models/bookmark.dart';
+import 'package:job_finder_app/models/job.dart';
 import 'package:job_finder_app/theme/custom_color.dart';
 
 class BookmarkTile extends StatelessWidget {
   final VoidCallback? onTap;
-  final Bookmark bookmark;
+  final Job job;
 
   const BookmarkTile({
     Key? key,
     required this.onTap,
-    required this.bookmark,
+    required this.job,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final formattedSalary = bookmark.salary != 0
-        ? NumberFormat("###,###.00").format(bookmark.salary)
-        : bookmark.salary.toStringAsFixed(2);
+    final formattedSalary = job.salary != 0
+        ? NumberFormat("###,###.00").format(job.salary)
+        : job.salary.toStringAsFixed(2);
 
     return InkWell(
       onTap: onTap,
@@ -27,7 +27,7 @@ class BookmarkTile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
-              bookmark.companyLogo,
+              job.companyLogo,
               width: 50,
               height: 50,
               fit: BoxFit.contain,
@@ -38,7 +38,7 @@ class BookmarkTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    bookmark.jobTitle,
+                    job.jobTitle,
                     style: const TextStyle(
                       color: CustomColor.titleColor,
                       fontSize: 18,
@@ -48,7 +48,7 @@ class BookmarkTile extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    bookmark.companyName,
+                    job.companyName,
                     style: const TextStyle(
                       color: CustomColor.deskripsiColor,
                       fontSize: 14,

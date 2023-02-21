@@ -18,6 +18,22 @@ class Review extends StatelessWidget {
         companyName: 'Gojek',
         salary: 5000.00,
         createdAt: DateTime(2023, 02, 09, 10, 20, 25),
+        type: 'Senior',
+        level: 'Junior',
+        description:
+            'One of the pioneers of Indonesia online marketplace in the tech realm which has sold many hi-tech gadgets and innovative products since 2016.',
+        skills: const ['UI UX Design', 'Figma', 'UI Design'],
+        requirements: const [
+          'You have excellent knowledge of UX and web design',
+          'You know how developer works (additional points)',
+          'You have at least 3 years of experience in a similar role',
+        ],
+        jobDescription: const [
+          'Implement and execute user testing and A/B testing.',
+          'Demonstrate your prototype / design results to user and stakeholder',
+          'Formulate good design ideas and propose solutions to increased product usefulness',
+        ],
+        location: 'California',
       ),
       Job(
         id: 2,
@@ -26,6 +42,22 @@ class Review extends StatelessWidget {
         companyName: 'Bukalapak',
         salary: 8000.00,
         createdAt: DateTime(2023, 01, 28, 9, 40, 10),
+        type: 'Senior',
+        level: 'Junior',
+        description:
+            'One of the pioneers of Indonesia online marketplace in the tech realm which has sold many hi-tech gadgets and innovative products since 2016.',
+        skills: const ['UI UX Design', 'Figma', 'UI Design'],
+        requirements: const [
+          'You have excellent knowledge of UX and web design',
+          'You know how developer works (additional points)',
+          'You have at least 3 years of experience in a similar role',
+        ],
+        jobDescription: const [
+          'Implement and execute user testing and A/B testing.',
+          'Demonstrate your prototype / design results to user and stakeholder',
+          'Formulate good design ideas and propose solutions to increased product usefulness',
+        ],
+        location: 'California',
       ),
     ];
 

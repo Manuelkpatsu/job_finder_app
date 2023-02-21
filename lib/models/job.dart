@@ -1,23 +1,58 @@
-import 'bookmark.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart' show Color, Colors;
+import 'package:job_finder_app/theme/custom_color.dart';
 
-class Job extends Bookmark {
+class Job extends Equatable {
+  final int id;
+  final String companyLogo;
+  final String jobTitle;
+  final String companyName;
+  final double salary;
   final DateTime createdAt;
+  final String type;
+  final String level;
+  final String description;
+  final List<String> requirements;
+  final List<String> jobDescription;
+  final List<String> skills;
+  final String location;
+  final Color backgroundColor;
+  final Color levelTypeColor;
 
   const Job({
-    required final int id,
-    required final String companyLogo,
-    required final String jobTitle,
-    required final String companyName,
-    required final double salary,
+    required this.id,
+    required this.companyLogo,
+    required this.jobTitle,
+    required this.companyName,
+    required this.salary,
     required this.createdAt,
-  }) : super(
-          id: id,
-          companyLogo: companyLogo,
-          jobTitle: jobTitle,
-          companyName: companyName,
-          salary: salary,
-        );
+    required this.type,
+    required this.level,
+    required this.description,
+    required this.requirements,
+    required this.jobDescription,
+    required this.skills,
+    required this.location,
+    this.backgroundColor = Colors.transparent,
+    this.levelTypeColor = CustomColor.lightBlueColor,
+  });
 
   @override
-  List<Object?> get props => super.props..addAll([createdAt]);
+  List<Object?> get props => [
+        id,
+        companyLogo,
+        jobTitle,
+        companyName,
+        salary,
+        createdAt,
+        type,
+        level,
+        description,
+        requirements,
+        jobDescription,
+        skills,
+        location,
+        backgroundColor,
+        levelTypeColor,
+      ];
 }

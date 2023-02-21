@@ -21,11 +21,11 @@ class WelcomeScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 50),
+              const SizedBox(height: 30),
               const Logo(logo: 'assets/images/logo-light.png'),
-              const SizedBox(height: 80),
-              const WelcomeThumbnail(),
               const SizedBox(height: 50),
+              const WelcomeThumbnail(),
+              const SizedBox(height: 40),
               const WelcomeText(),
               const SizedBox(height: 10),
               const WelcomeMessageText(),
