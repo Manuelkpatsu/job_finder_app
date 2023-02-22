@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:job_finder_app/models/job.dart';
+import 'package:job_finder_app/screens/main/notification/notification_screen.dart';
 import 'package:job_finder_app/theme/custom_color.dart';
 
 import 'widgets/category_text.dart';
@@ -136,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
       type: 'Full Time',
       level: 'Junior',
       description:
-      'One of the pioneers of Indonesia online marketplace in the tech realm which has sold many hi-tech gadgets and innovative products since 2016.',
+          'One of the pioneers of Indonesia online marketplace in the tech realm which has sold many hi-tech gadgets and innovative products since 2016.',
       requirements: const [
         'You have excellent knowledge of UX and web design',
         'You know how developer works (additional points)',
@@ -161,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
       type: 'Full Time',
       level: 'Junior',
       description:
-      'One of the pioneers of Indonesia online marketplace in the tech realm which has sold many hi-tech gadgets and innovative products since 2016.',
+          'One of the pioneers of Indonesia online marketplace in the tech realm which has sold many hi-tech gadgets and innovative products since 2016.',
       requirements: const [
         'You have excellent knowledge of UX and web design',
         'You know how developer works (additional points)',
@@ -188,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
       type: 'Full Time',
       level: 'Junior',
       description:
-      'One of the pioneers of Indonesia online marketplace in the tech realm which has sold many hi-tech gadgets and innovative products since 2016.',
+          'One of the pioneers of Indonesia online marketplace in the tech realm which has sold many hi-tech gadgets and innovative products since 2016.',
       requirements: const [
         'You have excellent knowledge of UX and web design',
         'You know how developer works (additional points)',
@@ -212,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
       type: 'Full Time',
       level: 'Junior',
       description:
-      'One of the pioneers of Indonesia online marketplace in the tech realm which has sold many hi-tech gadgets and innovative products since 2016.',
+          'One of the pioneers of Indonesia online marketplace in the tech realm which has sold many hi-tech gadgets and innovative products since 2016.',
       requirements: const [
         'You have excellent knowledge of UX and web design',
         'You know how developer works (additional points)',
@@ -249,7 +250,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   const WelcomeHomeText(),
                   const SizedBox(width: 40),
-                  NotificationButton(onTap: () {}),
+                  NotificationButton(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(NotificationScreen.routeName);
+                    },
+                  ),
                 ],
               ),
             ),
