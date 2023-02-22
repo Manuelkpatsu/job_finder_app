@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:job_finder_app/models/job.dart';
+import 'package:job_finder_app/screens/main/job_detail/job_detail_screen.dart';
 import 'package:job_finder_app/screens/main/notification/notification_screen.dart';
 import 'package:job_finder_app/theme/custom_color.dart';
 
@@ -289,7 +290,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           return Padding(
                             padding: const EdgeInsets.only(right: 12),
                             child: JobsForYouTile(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.of(context).pushNamed(
+                                  JobDetailScreen.routeName,
+                                  arguments: job,
+                                );
+                              },
                               job: job,
                             ),
                           );
@@ -315,7 +321,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         Job job = _recentlyPostedJobs[index];
 
                         return RecentlyPostedJobTile(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pushNamed(
+                              JobDetailScreen.routeName,
+                              arguments: job,
+                            );
+                          },
                           job: job,
                         );
                       },
@@ -346,7 +357,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           return Padding(
                             padding: const EdgeInsets.only(right: 12),
                             child: FreelanceJobTile(
-                              onTap: () {},
+                              onTap: () {
+                                Navigator.of(context).pushNamed(
+                                  JobDetailScreen.routeName,
+                                  arguments: job,
+                                );
+                              },
                               job: job,
                             ),
                           );

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:job_finder_app/models/job.dart';
 import 'package:job_finder_app/models/notification.dart';
+import 'package:job_finder_app/screens/main/notification_detail/notification_detail_screen.dart';
 import 'package:job_finder_app/screens/widgets/app_bar_divider.dart';
 import 'package:job_finder_app/theme/custom_color.dart';
 
@@ -28,7 +29,7 @@ class NotificationScreen extends StatelessWidget {
           type: 'Full Time',
           level: 'Junior',
           description:
-          'One of the pioneers of Indonesia online marketplace in the tech realm which has sold many hi-tech gadgets and innovative products since 2016.',
+              'One of the pioneers of Indonesia online marketplace in the tech realm which has sold many hi-tech gadgets and innovative products since 2016.',
           requirements: const [
             'You have excellent knowledge of UX and web design',
             'You know how developer works (additional points)',
@@ -60,7 +61,7 @@ class NotificationScreen extends StatelessWidget {
           type: 'Internship',
           level: 'Junior',
           description:
-          'One of the pioneers of Indonesia online marketplace in the tech realm which has sold many hi-tech gadgets and innovative products since 2016.',
+              'One of the pioneers of Indonesia online marketplace in the tech realm which has sold many hi-tech gadgets and innovative products since 2016.',
           requirements: const [
             'You have excellent knowledge of UX and web design',
             'You know how developer works (additional points)',
@@ -76,7 +77,7 @@ class NotificationScreen extends StatelessWidget {
         ),
         id: 2,
         date: DateTime(2023, 02, 21, 09, 57, 30),
-        resume: File('/Users/emmanuelnartey/Documents/dee/flutter/job_finder_app/assets/sample.pdf'),
+        resume: File('assets/sample.pdf'),
         submissionDate: DateTime(2023, 02, 15, 09, 40, 30),
         message: 'The application for UI UX Designer has been reviewed by the company',
       ),
@@ -94,7 +95,12 @@ class NotificationScreen extends StatelessWidget {
           NotificationModel notification = notifications[index];
 
           return NotificationTile(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).pushNamed(
+                NotificationDetailScreen.routeName,
+                arguments: notification,
+              );
+            },
             notification: notification,
           );
         },

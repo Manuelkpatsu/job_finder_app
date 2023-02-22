@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
+import 'models/job.dart';
+import 'models/notification.dart';
 import 'screens/auth/login/login_screen.dart';
 import 'screens/auth/register/register_screen.dart';
 import 'screens/main/app.dart';
 import 'screens/main/application/application_screen.dart';
 import 'screens/main/bookmarks/bookmarks_screen.dart';
 import 'screens/main/home/home_screen.dart';
+import 'screens/main/job_detail/job_detail_screen.dart';
 import 'screens/main/notification/notification_screen.dart';
+import 'screens/main/notification_detail/notification_detail_screen.dart';
 import 'screens/main/profile/change_email/change_email_screen.dart';
 import 'screens/main/profile/change_name/change_name_screen.dart';
 import 'screens/main/profile/change_password/change_password_screen.dart';
@@ -45,6 +49,14 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ChangePasswordScreen());
       case NotificationScreen.routeName:
         return MaterialPageRoute(builder: (_) => const NotificationScreen());
+      case NotificationDetailScreen.routeName:
+        NotificationModel argument = settings.arguments as NotificationModel;
+        return MaterialPageRoute(
+          builder: (_) => NotificationDetailScreen(argument: argument),
+        );
+      case JobDetailScreen.routeName:
+        Job argument = settings.arguments as Job;
+        return MaterialPageRoute(builder: (_) => JobDetailScreen(argument: argument));
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
