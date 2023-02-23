@@ -29,7 +29,7 @@ class ApplyJobScreen extends StatefulWidget {
 }
 
 class _ApplyJobScreenState extends State<ApplyJobScreen> {
-  FilePickerResult? result;
+  FilePickerResult? _result;
   File? _pickedFile;
   final TextEditingController _letterController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
@@ -78,10 +78,10 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const UploadYourResumeText(),
-                  result == null ? const SizedBox.shrink() : const SizedBox(height: 11),
-                  result == null
+                  _result == null ? const SizedBox.shrink() : const SizedBox(height: 11),
+                  _result == null
                       ? const SizedBox.shrink()
-                      : UploadedResumeText(resume: result!.files.single.name),
+                      : UploadedResumeText(resume: _result!.files.single.name),
                   const SizedBox(height: 24),
                   Row(
                     children: [
@@ -90,11 +90,11 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                         height: 50,
                         width: 76,
                         onPressed: () async {
-                          result = await FilePicker.platform.pickFiles();
+                          _result = await FilePicker.platform.pickFiles();
 
-                          if (result != null) {
+                          if (_result != null) {
                             setState(() {
-                              _pickedFile = File(result!.files.single.path!);
+                              _pickedFile = File(_result!.files.single.path!);
                             });
                           } else {
                             debugPrint('Please try again.');
@@ -103,7 +103,16 @@ class _ApplyJobScreenState extends State<ApplyJobScreen> {
                         widget: Text(_pickedFile == null ? 'Upload' : 'Edit'),
                       ),
                       const SizedBox(width: 10),
-                      DeleteButton(onPressed: () {}),
+                      DeleteButton(
+                        onPressed: () {
+                          setState(() {
+                            if (_pickedFile != null || _result != null) {
+                              _pickedFile = null;
+                              _result = null;
+                            }
+                          });
+                        },
+                      ),
                     ],
                   ),
                 ],
