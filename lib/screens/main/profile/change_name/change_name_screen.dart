@@ -44,53 +44,43 @@ class _ChangeNameScreenState extends State<ChangeNameScreen> {
         centerTitle: false,
         bottom: const AppBarDivider(),
       ),
-      body: LayoutBuilder(builder: (context, constraints) {
-        return SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              minWidth: constraints.maxWidth,
-              minHeight: constraints.maxHeight,
-            ),
-            child: IntrinsicHeight(
-              child: Form(
-                key: _changeNameFormKey,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                child: Column(
-                  children: [
-                    const SizedBox(height: 32),
-                    TextInputField(
-                      controller: _firstNameController,
-                      labelText: 'First Name',
-                      inputType: TextInputType.name,
-                      inputAction: TextInputAction.next,
-                      validator: Validator.firstName,
-                    ),
-                    const SizedBox(height: 10),
-                    TextInputField(
-                      controller: _lastNameController,
-                      labelText: 'Last Name',
-                      inputType: TextInputType.name,
-                      inputAction: TextInputAction.done,
-                      validator: Validator.lastName,
-                    ),
-                    const Spacer(),
-                    CustomButton(
-                      onPressed: () {
-                        if (_changeNameFormKey.currentState!.validate()) {
-                          Navigator.of(context).pop();
-                        }
-                      },
-                      widget: const Text('Save'),
-                    ),
-                    const SizedBox(height: 50),
-                  ],
-                ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Form(
+          key: _changeNameFormKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          child: Column(
+            children: [
+              const SizedBox(height: 32),
+              TextInputField(
+                controller: _firstNameController,
+                labelText: 'First Name',
+                inputType: TextInputType.name,
+                inputAction: TextInputAction.next,
+                validator: Validator.firstName,
               ),
-            ),
+              const SizedBox(height: 10),
+              TextInputField(
+                controller: _lastNameController,
+                labelText: 'Last Name',
+                inputType: TextInputType.name,
+                inputAction: TextInputAction.done,
+                validator: Validator.lastName,
+              ),
+              const SizedBox(height: 100),
+              CustomButton(
+                onPressed: () {
+                  if (_changeNameFormKey.currentState!.validate()) {
+                    Navigator.of(context).pop();
+                  }
+                },
+                widget: const Text('Save'),
+              ),
+              const SizedBox(height: 50),
+            ],
           ),
-        );
-      }),
+        ),
+      ),
     );
   }
 }

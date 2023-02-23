@@ -41,45 +41,35 @@ class _ChangeEmailScreenState extends State<ChangeEmailScreen> {
         centerTitle: false,
         bottom: const AppBarDivider(),
       ),
-      body: LayoutBuilder(builder: (context, constraints) {
-        return SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
-              minWidth: constraints.maxWidth,
-              minHeight: constraints.maxHeight,
-            ),
-            child: IntrinsicHeight(
-              child: Form(
-                key: _changeEmailFormKey,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                child: Column(
-                  children: [
-                    const SizedBox(height: 32),
-                    TextInputField(
-                      controller: _emailController,
-                      labelText: 'Email',
-                      inputType: TextInputType.emailAddress,
-                      inputAction: TextInputAction.done,
-                      validator: Validator.email,
-                    ),
-                    const Spacer(),
-                    CustomButton(
-                      onPressed: () {
-                        if (_changeEmailFormKey.currentState!.validate()) {
-                          Navigator.of(context).pop();
-                        }
-                      },
-                      widget: const Text('Save'),
-                    ),
-                    const SizedBox(height: 50),
-                  ],
-                ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Form(
+          key: _changeEmailFormKey,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          child: Column(
+            children: [
+              const SizedBox(height: 32),
+              TextInputField(
+                controller: _emailController,
+                labelText: 'Email',
+                inputType: TextInputType.emailAddress,
+                inputAction: TextInputAction.done,
+                validator: Validator.email,
               ),
-            ),
+              const SizedBox(height: 100),
+              CustomButton(
+                onPressed: () {
+                  if (_changeEmailFormKey.currentState!.validate()) {
+                    Navigator.of(context).pop();
+                  }
+                },
+                widget: const Text('Save'),
+              ),
+              const SizedBox(height: 50),
+            ],
           ),
-        );
-      }),
+        ),
+      ),
     );
   }
 }
