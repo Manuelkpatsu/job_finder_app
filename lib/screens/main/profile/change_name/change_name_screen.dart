@@ -42,6 +42,7 @@ class _ChangeNameScreenState extends State<ChangeNameScreen> {
       appBar: AppBar(
         title: const ChangeNameText(),
         centerTitle: false,
+        titleSpacing: 0,
         bottom: const AppBarDivider(),
       ),
       body: SingleChildScrollView(

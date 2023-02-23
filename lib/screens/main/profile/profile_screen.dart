@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:job_finder_app/models/profile_item.dart';
 import 'package:job_finder_app/theme/custom_color.dart';
 
+import 'change_birth_date/change_birth_date_screen.dart';
 import 'change_email/change_email_screen.dart';
 import 'change_name/change_name_screen.dart';
 import 'change_password/change_password_screen.dart';
@@ -22,7 +23,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String password = 'dee234@23';
-    DateTime dateOfBirth = DateTime(2000, 2, 10);
+    DateTime dateOfBirth = DateTime(2000, 12, 5);
     String fullName = 'Muhamad Fadli';
     String email = 'fadly00@gmail.com';
 
@@ -31,7 +32,12 @@ class ProfileScreen extends StatelessWidget {
         icon: Icons.calendar_today_outlined,
         title: 'Date of Birth',
         info: DateFormat('dd-MM-yyyy').format(dateOfBirth),
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).pushNamed(
+            ChangeBirthDateScreen.routeName,
+            arguments: dateOfBirth,
+          );
+        },
       ),
       ProfileItem(
         icon: Icons.email_rounded,

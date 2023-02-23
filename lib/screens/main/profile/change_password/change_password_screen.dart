@@ -34,6 +34,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
       appBar: AppBar(
         title: const ChangePasswordText(),
         centerTitle: false,
+        titleSpacing: 0,
         bottom: const AppBarDivider(),
       ),
       body: SingleChildScrollView(

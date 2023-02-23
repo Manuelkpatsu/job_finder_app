@@ -51,4 +51,12 @@ class Validator {
 
     return null;
   };
+
+  static FormFieldValidator<String>? dateOfBirth = (date) {
+    if (date == null || date.isEmpty) {
+      return 'Date of birth is required';
+    }
+
+    return null;
+  };
 }

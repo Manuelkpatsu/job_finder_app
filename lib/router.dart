@@ -12,6 +12,7 @@ import 'screens/main/home/home_screen.dart';
 import 'screens/main/job_detail/job_detail_screen.dart';
 import 'screens/main/notification/notification_screen.dart';
 import 'screens/main/notification_detail/notification_detail_screen.dart';
+import 'screens/main/profile/change_birth_date/change_birth_date_screen.dart';
 import 'screens/main/profile/change_email/change_email_screen.dart';
 import 'screens/main/profile/change_name/change_name_screen.dart';
 import 'screens/main/profile/change_password/change_password_screen.dart';
@@ -65,6 +66,11 @@ class AppRouter {
       case SuccessScreen.routeName:
         Job argument = settings.arguments as Job;
         return MaterialPageRoute(builder: (_) => SuccessScreen(argument: argument));
+      case ChangeBirthDateScreen.routeName:
+        DateTime argument = settings.arguments as DateTime;
+        return MaterialPageRoute(
+          builder: (_) => ChangeBirthDateScreen(argument: argument),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

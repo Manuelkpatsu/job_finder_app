@@ -39,6 +39,7 @@ class _ChangeEmailScreenState extends State<ChangeEmailScreen> {
       appBar: AppBar(
         title: const ChangeEmailText(),
         centerTitle: false,
+        titleSpacing: 0,
         bottom: const AppBarDivider(),
       ),
       body: SingleChildScrollView(
