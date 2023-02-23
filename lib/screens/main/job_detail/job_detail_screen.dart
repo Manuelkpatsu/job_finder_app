@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:job_finder_app/models/job.dart';
+import 'package:job_finder_app/screens/main/apply_job/apply_job_screen.dart';
 import 'package:job_finder_app/screens/widgets/app_bar_divider.dart';
 import 'package:job_finder_app/screens/widgets/custom_button.dart';
 import 'package:job_finder_app/theme/custom_color.dart';
@@ -96,19 +97,36 @@ class JobDetailScreen extends StatelessWidget {
                 );
               }).toList(),
             ),
-            const SizedBox(height: 40),
-            const Divider(
-              height: 0,
-              thickness: 1.0,
-              color: CustomColor.dividerColor,
-            ),
-            const SizedBox(height: 16),
-            CustomButton(
-              onPressed: () {},
-              widget: const Text('Apply'),
-            ),
-            const SizedBox(height: 100),
+            const SizedBox(height: 150),
           ],
+        ),
+      ),
+      bottomSheet: IntrinsicHeight(
+        child: Container(
+          color: Colors.white,
+          child: Column(
+            children: [
+              const Divider(
+                height: 0,
+                thickness: 1.0,
+                color: CustomColor.dividerColor,
+              ),
+              const SizedBox(height: 16),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+                child: CustomButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(
+                      ApplyJobScreen.routeName,
+                      arguments: argument,
+                    );
+                  },
+                  widget: const Text('Apply'),
+                ),
+              ),
+              const SizedBox(height: 30),
+            ],
+          ),
         ),
       ),
     );

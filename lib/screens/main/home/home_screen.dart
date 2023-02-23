@@ -81,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Job(
       id: 1,
       companyLogo: 'assets/images/companies/gojek.png',
-      jobTitle: 'Digital Marketing',
+      jobTitle: 'Digital Marketer',
       companyName: 'Gojek',
       salary: 1000,
       createdAt: DateTime(2023, 02, 09, 10, 20, 25),

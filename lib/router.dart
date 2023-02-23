@@ -6,6 +6,7 @@ import 'screens/auth/login/login_screen.dart';
 import 'screens/auth/register/register_screen.dart';
 import 'screens/main/app.dart';
 import 'screens/main/application/application_screen.dart';
+import 'screens/main/apply_job/apply_job_screen.dart';
 import 'screens/main/bookmarks/bookmarks_screen.dart';
 import 'screens/main/home/home_screen.dart';
 import 'screens/main/job_detail/job_detail_screen.dart';
@@ -15,6 +16,7 @@ import 'screens/main/profile/change_email/change_email_screen.dart';
 import 'screens/main/profile/change_name/change_name_screen.dart';
 import 'screens/main/profile/change_password/change_password_screen.dart';
 import 'screens/main/profile/profile_screen.dart';
+import 'screens/main/success/success_screen.dart';
 import 'screens/splash/splash_screen.dart';
 import 'screens/welcome/welcome_screen.dart';
 
@@ -57,6 +59,12 @@ class AppRouter {
       case JobDetailScreen.routeName:
         Job argument = settings.arguments as Job;
         return MaterialPageRoute(builder: (_) => JobDetailScreen(argument: argument));
+      case ApplyJobScreen.routeName:
+        Job argument = settings.arguments as Job;
+        return MaterialPageRoute(builder: (_) => ApplyJobScreen(argument: argument));
+      case SuccessScreen.routeName:
+        Job argument = settings.arguments as Job;
+        return MaterialPageRoute(builder: (_) => SuccessScreen(argument: argument));
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

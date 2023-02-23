@@ -39,7 +39,7 @@ class PasswordInputField extends StatelessWidget {
       cursorColor: CustomColor.deskripsiColor,
       style: const TextStyle(
         fontSize: 17,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w700,
         color: CustomColor.deskripsiColor,
         height: 1.29,
       ),

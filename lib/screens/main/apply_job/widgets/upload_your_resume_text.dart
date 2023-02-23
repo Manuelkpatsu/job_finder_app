@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:job_finder_app/theme/custom_color.dart';
 
-class SuccessText extends StatelessWidget {
-  const SuccessText({Key? key}) : super(key: key);
+class UploadYourResumeText extends StatelessWidget {
+  const UploadYourResumeText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return const Text(
-      'Success',
+      'Upload your resume',
       style: TextStyle(
         color: CustomColor.titleColor,
-        fontSize: 30,
-        fontWeight: FontWeight.w700,
-        height: 1.21,
+        fontSize: 18,
+        fontWeight: FontWeight.w600,
+        height: 1.22,
       ),
     );
   }
