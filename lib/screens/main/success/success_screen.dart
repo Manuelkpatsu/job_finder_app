@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:job_finder_app/models/job.dart';
 import 'package:job_finder_app/screens/main/app.dart';
 import 'package:job_finder_app/screens/widgets/custom_button.dart';
-import 'package:job_finder_app/theme/custom_color.dart';
 
 import 'widgets/message_text.dart';
+import 'widgets/success_text.dart';
+import 'widgets/success_thumbnail.dart';
 
 class SuccessScreen extends StatefulWidget {
   static const routeName = '/success';
@@ -50,22 +51,9 @@ class _SuccessScreenState extends State<SuccessScreen> with TickerProviderStateM
         child: Column(
           children: [
             const SizedBox(height: 100),
-            Image.asset(
-              'assets/images/success.png',
-              width: 72,
-              height: 72,
-              fit: BoxFit.contain,
-            ),
+            const SuccessThumbnail(),
             const SizedBox(height: 26),
-            const Text(
-              'Success',
-              style: TextStyle(
-                color: CustomColor.titleColor,
-                fontSize: 32,
-                fontWeight: FontWeight.w700,
-                height: 1.21,
-              ),
-            ),
+            const SuccessText(),
             const SizedBox(height: 16),
             MessageText(job: widget.job),
             const SizedBox(height: 40),
